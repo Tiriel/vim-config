@@ -1,0 +1,3 @@
+[submodule "phpactor"]
+	path = phpactor
+	url = /home/benjaminz/Dev/vim-config/dotvim/bundle/phpactor
