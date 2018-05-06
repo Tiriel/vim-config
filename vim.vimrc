@@ -42,6 +42,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 
 " --- Code Assist Plugins ---
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'phpactor/phpactor'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'tpope/vim-surround'
 Plugin 'beyondwords/vim-twig'
@@ -59,7 +60,6 @@ Plugin 'maksimr/vim-jsbeautify'
 
 " --- Support Plugins ---
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'phpactor/phpactor'
 
 call vundle#end()
 
@@ -104,9 +104,11 @@ let g:rehash256 = 1
 
 " --- Airline status bar ---
 let g:airline_detect_paste=1
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='molokai'
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:gitgutter_async=0
 
 " --- Neocomplete ---
 let g:neocomplete#enable_at_startup = 1
@@ -125,16 +127,34 @@ let g:easytags_suppress_ctags_warnings = 1
 "remap the leader to something easier to type
 let mapleader = "¤"
 
+" ArgWrap*
+nnoremap <silent> <leader>a :ArgWrap<CR>
+
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" NERDTree
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 nmap <silent> <leader>b :TagbarToggle<CR>
 
+" TagbarToggle
+nmap <F8> :TagbarToggle<CR>
+
+" FZF
 noremap <C-F> :FZF<CR>
-noremap <C-w> :Bdelete<CR>
+noremap <C-q> :Bdelete<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" CamelCaseMotion
+map <silent> <C-w> <Plug>CamelCaseMotion_w
+map <silent> <C-b> <Plug>CamelCaseMotion_b
+map <silent> <C-e> <Plug>CamelCaseMotion_e
+map <silent> <C-g>e <Plug>CamelCaseMotion_ge
 
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
@@ -160,5 +180,8 @@ augroup mydelimitMate
 augroup END
 
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+
+autocmd BufEnter * sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
 
