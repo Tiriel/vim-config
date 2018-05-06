@@ -80,7 +80,7 @@ then
 fi
 
 # fzf
-if ! command -v fzf >/dev/null 2>&1
+if ! ls /home/$logname/.fzf/ 2>/dev/null
 then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install -y
