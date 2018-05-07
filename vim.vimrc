@@ -35,6 +35,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ErichDonGubler/vim-sublime-monokai'
 Plugin 'dikiaap/minimalist'
 Plugin 'tomasr/molokai'
+Plugin 'ajmwagar/vim-deus'
+Plugin 'nightsense/carbonized'
+Plugin 'morhetz/gruvbox'
+Plugin 'aradunovic/perun.vim'
 
 " --- Syntax Plugins ---
 Plugin 'stephpy/vim-yaml'
@@ -43,6 +47,14 @@ Plugin 'cakebaker/scss-syntax.vim'
 
 " --- Code Assist Plugins ---
 Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'sniphpets/sniphpets'
+Plugin 'sniphpets/sniphpets-common'
+Plugin 'sniphpets/sniphpets-symfony'
+Plugin 'sniphpets/sniphpets-doctrine'
+Plugin 'sniphpets/sniphpets-phpunit'
+Plugin 'sniphpets/sniphpets-silex'
 Plugin 'phpactor/phpactor'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'tpope/vim-surround'
@@ -88,10 +100,10 @@ set hlsearch
 syntax enable
 
 set t_Co=256
+set termguicolors
+set background=dark
 
 set mouse=a
-
-set background=dark
 
 hi clear SignColumn
 
@@ -103,13 +115,19 @@ set laststatus=2
 let g:molokai_original = 1
 let g:rehash256 = 1
 
+" --- Deus color settings ---
+let g:deus_termcolors=256
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " --- Airline status bar ---
 let g:airline_detect_paste=1
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#tab_nr_type = 1 
+let g:airline#extensions#tabline#tab_nr_type = 2
+let g:airline#extensions#tabline#alt_sep = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:gitgutter_async=0
@@ -127,9 +145,14 @@ let g:easytags_dynamic_files = 2
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warnings = 1
 
+" --- UtilSnips ---
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-z>"
+let g:UltiSnipsJumpBackwardTrigger="<C-a>"
+
 " --- Maps & remaps ---
 "remap the leader to something easier to type
-let mapleader = "¤"
+let mapleader = "ù"
 
 " Airline Tabline
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -141,8 +164,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>p <Plug>AirlineSelectPrevTab
-nmap <leader>n <Plug>AirlineSelectNextTab
+nmap <leader>( <Plug>AirlineSelectPrevTab
+nmap <leader>) <Plug>AirlineSelectNextTab
 
 " ArgWrap*
 nnoremap <silent> <leader>a :ArgWrap<CR>
@@ -156,11 +179,11 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 nmap <silent> <leader>b :TagbarToggle<CR>
 
 " TagbarToggle
-nmap <F8> :TagbarToggle<CR>
+nmap <F12> :TagbarToggle<CR>
 
 " FZF
 noremap <C-F> :FZF<CR>
-noremap <C-Q> :Bdelete<CR>
+noremap <C-q> :Bdelete<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

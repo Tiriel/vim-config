@@ -162,3 +162,9 @@ git clone https://github.com/dikiaap/minimalist ~/.vim/bundle/minimalist
 # install plugins
 vim +PluginInstall +qall
 
+ln -s ~/Dev/php/phpactor ~/.vim/bundle/phpactor
+cd ~/.vim/bundle/phpactor
+composer install
+
+echo "All done!"
+
