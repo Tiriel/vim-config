@@ -151,8 +151,8 @@ git clone https://github.com:Tiriel/vim-config.git
 mkdir ~/.vim
 cp ~/vim-config/vim.vimrc ~/.vimrc
 cp ~/vim-config/dotvim/* ~/.vim/* -r
-chown benjamin:benjamin -R ~/.vim
-chown benjamin:benjamin ~/.vimrc
+chown $(logname):$(logname) -R ~/.vim
+chown $(logname):$(logname) ~/.vimrc
 rm -rf vim-config
 
 # install Vundle
