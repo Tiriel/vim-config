@@ -42,6 +42,7 @@ Plugin 'aradunovic/perun.vim'
 
 " --- Syntax Plugins ---
 Plugin 'stephpy/vim-yaml'
+Plugin 'StanAngeloff/php.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 
