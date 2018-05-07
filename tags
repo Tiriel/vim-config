@@ -50,6 +50,7 @@ g:gitgutter_async	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:gitgutter_asy
 g:molokai_original	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:molokai_original = 1$/;"	v	language:Vim
 g:neocomplete#enable_at_startup	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:neocomplete#enable_at_startup = 1$/;"	v	language:Vim
 g:nerdtree_tabs_open_on_console_startup	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:nerdtree_tabs_open_on_console_startup = 1$/;"	v	language:Vim
+g:php_var_selector_is_identifier	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:php_var_selector_is_identifier = 1$/;"	v	language:Vim
 g:rehash256	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:rehash256 = 1$/;"	v	language:Vim
 g:UltiSnipsExpandTrigger	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<Tab>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/home/benjaminz/Dev/vim-config/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<C-a>"$/;"	v	language:Vim

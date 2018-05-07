@@ -39,6 +39,7 @@ Plugin 'ajmwagar/vim-deus'
 Plugin 'nightsense/carbonized'
 Plugin 'morhetz/gruvbox'
 Plugin 'aradunovic/perun.vim'
+Plugin 'joshdick/onedark.vim'
 
 " --- Syntax Plugins ---
 Plugin 'stephpy/vim-yaml'
@@ -112,14 +113,17 @@ colorscheme minimalist
 
 set laststatus=2
 
+" --- php.vim ---
+let g:php_var_selector_is_identifier = 1
+
 " --- Molokai color settings ---
 let g:molokai_original = 1
 let g:rehash256 = 1
 
 " --- Deus color settings ---
 let g:deus_termcolors=256
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " --- Airline status bar ---
 let g:airline_detect_paste=1
