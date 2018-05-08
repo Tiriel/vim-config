@@ -26,11 +26,11 @@
 <Leader>em	/home/benjamin/Dev/vim-config/vim.vimrc	/^vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>$/;"	m	language:Vim
 <leader>gb	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gb :Gblame<CR>$/;"	m	language:Vim
 <leader>gc	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gc :Gcommit -m ""$/;"	m	language:Vim
-<leader>gf	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gf :Gfetch$/;"	m	language:Vim
+<leader>gf	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gf :Gfetch $/;"	m	language:Vim
 <leader>gl	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gl :Glog<CR>$/;"	m	language:Vim
-<leader>gpl	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gpl :Gpull$/;"	m	language:Vim
-<leader>gps	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gps :Gpush$/;"	m	language:Vim
-<leader>gr	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gr :Git rebase$/;"	m	language:Vim
+<leader>gpl	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gpl :Gpull $/;"	m	language:Vim
+<leader>gps	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gps :Gpush $/;"	m	language:Vim
+<leader>gr	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gr :Git rebase $/;"	m	language:Vim
 <leader>gs	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <silent> <leader>gs :Gstatus<CR>$/;"	m	language:Vim
 <Leader>mm	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <Leader>mm :call phpactor#ContextMenu()<CR>$/;"	m	language:Vim
 <Leader>o	/home/benjamin/Dev/vim-config/vim.vimrc	/^nmap <Leader>o :call phpactor#GotoDefinition()<CR>$/;"	m	language:Vim
