@@ -173,6 +173,16 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>( <Plug>AirlineSelectPrevTab
 nmap <leader>) <Plug>AirlineSelectNextTab
 
+" vim-fugitive
+nmap <silent> <leader>gs :Gstatus<CR>
+nmap <silent> <leader>gpl :Gpull
+nmap <silent> <leader>gps :Gpush
+nmap <silent> <leader>gf :Gfetch
+nmap <silent> <leader>gl :Glog<CR>
+nmap <silent> <leader>gb :Gblame<CR>
+nmap <silent> <leader>gc :Gcommit -m ""
+nmap <silent> <leader>gr :Git rebase
+
 " ArgWrap*
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
