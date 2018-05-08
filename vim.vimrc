@@ -142,6 +142,7 @@ let g:neocomplete#enable_at_startup = 1
 
 " --- NERDTree ---
 let g:nerdtree_tabs_open_on_console_startup = 1
+let g:NERDTreeChDirMode = 2
 
 " --- EasyTags ---
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
@@ -182,13 +183,14 @@ nmap ga <Plug>(EasyAlign)
 " NERDTree
 nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 nmap <silent> <leader>b :TagbarToggle<CR>
+nmap <silent> <leader>r :NERDTreeCWD<CR>
 
 " TagbarToggle
 nmap <F12> :TagbarToggle<CR>
 
 " FZF
 noremap <C-F> :FZF<CR>
-noremap <C-q> :Bdelete<CR>
+noremap <leader>q :Bdelete<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
