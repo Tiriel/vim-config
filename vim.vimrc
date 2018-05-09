@@ -153,8 +153,10 @@ let g:easytags_suppress_ctags_warnings = 1
 
 " --- UtilSnips ---
 let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-z>"
 let g:UltiSnipsJumpBackwardTrigger="<C-a>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnips"]
 
 " --- Maps & remaps ---
 "remap the leader to something easier to type
@@ -240,6 +242,5 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
-
 
 

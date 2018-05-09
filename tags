@@ -65,6 +65,8 @@ g:rehash256	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:rehash256 = 1
 g:UltiSnipsExpandTrigger	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:UltiSnipsExpandTrigger="<Tab>"$/;"	v	language:Vim
 g:UltiSnipsJumpBackwardTrigger	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:UltiSnipsJumpBackwardTrigger="<C-a>"$/;"	v	language:Vim
 g:UltiSnipsJumpForwardTrigger	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:UltiSnipsJumpForwardTrigger="<C-z>"$/;"	v	language:Vim
+g:UltiSnipsListSnippets	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:UltiSnipsListSnippets="<c-tab>"$/;"	v	language:Vim
+g:UltiSnipsSnippetDirectories	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnips"]$/;"	v	language:Vim
 ga	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap ga <Plug>(EasyAlign)$/;"	m	language:Vim
 mapleader	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let mapleader = "ù"$/;"	v	language:Vim
 mydelimitMate	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^augroup mydelimitMate$/;"	a	language:Vim
