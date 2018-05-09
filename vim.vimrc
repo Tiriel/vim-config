@@ -32,7 +32,7 @@ Plugin 'moll/vim-bbye'
 " --- ColorSchemes ---
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'ErichDonGubler/vim-sublime-monokai'
+Plugin 'Tiriel/sublimemonokai'
 Plugin 'dikiaap/minimalist'
 Plugin 'tomasr/molokai'
 Plugin 'ajmwagar/vim-deus'
@@ -109,7 +109,7 @@ set mouse=a
 
 hi clear SignColumn
 
-colorscheme minimalist
+colorscheme sublimemonokai
 
 set laststatus=2
 
@@ -240,5 +240,6 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
 
 
