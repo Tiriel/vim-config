@@ -57,7 +57,7 @@ fi
 if ! command -v phpactor >/dev/null 2>&1
 then
     cd ~$logname/Dev/php
-    git clone git@github.com:phpactor/phpactor
+    git clone https://github.com/phpactor/phpactor.git
     cd phpactor
     composer install
     cd /usr/local/bin
