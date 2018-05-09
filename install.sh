@@ -56,12 +56,12 @@ fi
 # phpactor
 if ! command -v phpactor >/dev/null 2>&1
 then
-    cd ~/Dev/php
+    cd ~$logname/Dev/php
     git clone git@github.com:phpactor/phpactor
     cd phpactor
     composer install
     cd /usr/local/bin
-    ln -s ~/Dev/php/phpactor/bin/phpactor phpactor
+    ln -s ~$logname/Dev/php/phpactor/bin/phpactor phpactor
     cd ~
 fi
 
@@ -83,8 +83,8 @@ fi
 if ! eval ls "~$logname" >/dev/null 2>&1
 then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    yes | ~/.fzf/install
-    source ~/.bashrc
+    yes | ~$logname/.fzf/install
+    source ~$logname/.bashrc
 fi
 
 # universal-ctags
@@ -146,25 +146,26 @@ make
 checkinstall -y
 
 # copy config from this repo
-cd ~
+cd ~$logname
 git clone https://github.com:Tiriel/vim-config.git
-mkdir ~/.vim
-cp ~/vim-config/vim.vimrc ~/.vimrc
-cp ~/vim-config/dotvim/* ~/.vim/* -r
-chown $(logname):$(logname) -R ~/.vim
-chown $(logname):$(logname) ~/.vimrc
-rm -rf vim-config
+mkdir ~$logname/.vim
+cp ~$logname/vim-config/vim.vimrc ~/.vimrc
+cp ~$logname/vim-config/dotvim/* ~/.vim/* -r
 
 # install Vundle
+rm -fr ~$logname/.vim/bundle/Vundle*
+rm -fr ~$logname/.vim/bundle/minima*
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/dikiaap/minimalist ~/.vim/bundle/minimalist
 
 # install plugins
 vim +PluginInstall +qall
 
-ln -s ~/Dev/php/phpactor ~/.vim/bundle/phpactor
-cd ~/.vim/bundle/phpactor
+cd ~$logname/.vim/bundle/phpactor
 composer install
+
+chown $(logname):$(logname) -R ~/.vim
+chown $(logname):$(logname) ~/.vimrc
 
 echo "All done!"
 
