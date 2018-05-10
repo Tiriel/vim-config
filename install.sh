@@ -3,6 +3,12 @@
 # /!\
 # This script needs to be run in sudo
 
+DIR=$(cd `dirname $0` && pwd)
+
+# Starting by removing all other versions of vim
+apt remove -y vim vim*
+apt autoremove
+
 # ------ Requirements ------
 # LUA & other base requirements check/install
 apt install -y \
@@ -56,13 +62,13 @@ fi
 # phpactor
 if ! command -v phpactor >/dev/null 2>&1
 then
-    cd ~$logname/Dev/php
+    cd /home/$(logname)/Dev/php
     git clone https://github.com/phpactor/phpactor.git
     cd phpactor
     composer install
     cd /usr/local/bin
-    ln -s ~$logname/Dev/php/phpactor/bin/phpactor phpactor
-    cd ~
+    ln -s /home/$(logname)/Dev/php/phpactor/bin/phpactor phpactor
+    cd /home/$(logname)/
 fi
 
 # php-cs-fixer
@@ -80,11 +86,11 @@ then
 fi
 
 # fzf
-if ! eval ls "~$logname" >/dev/null 2>&1
+if ! eval ls "/home/$(logname)/.fzf" >/dev/null 2>&1
 then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    yes | ~$logname/.fzf/install
-    source ~$logname/.bashrc
+    git clone --depth 1 https://github.com/junegunn/fzf.git /home/$(logname)/.fzf
+    yes | /home/$(logname)/.fzf/install
+    source /home/$(logname)/.bashrc
 fi
 
 # universal-ctags
@@ -96,10 +102,12 @@ then
     ./configure
     make
     checkinstall
+    cd ..
+    rm -rf ctags
 fi
 
 # ------ Build ------
-cd ~
+cd /home/$(logname)/
 if ls .vim 2>/dev/null
 then
     rm -rf .vim
@@ -146,26 +154,25 @@ make
 checkinstall -y
 
 # copy config from this repo
-cd ~$logname
-git clone https://github.com:Tiriel/vim-config.git
-mkdir ~$logname/.vim
-cp ~$logname/vim-config/vim.vimrc ~/.vimrc
-cp ~$logname/vim-config/dotvim/* ~/.vim/* -r
+cd /home/$(logname)/
+cp $DIR/vim.vimrc /home/$(logname)/.vimrc
+cp $DIR/dotvim /home/$(logname)/.vim -r
 
 # install Vundle
-rm -fr ~$logname/.vim/bundle/Vundle*
-rm -fr ~$logname/.vim/bundle/minima*
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/dikiaap/minimalist ~/.vim/bundle/minimalist
+rm -fr /home/$(logname)/.vim/bundle/Vundle*
+rm -fr /home/$(logname)/.vim/bundle/sublime*
+su $logname
+git clone https://github.com/VundleVim/Vundle.vim.git /home/$(logname)/.vim/bundle/Vundle.vim
+git clone git@github.com:Tiriel/sublimemonokai /home/$(logname)/.vim/bundle/sublimemonokai
 
 # install plugins
 vim +PluginInstall +qall
 
-cd ~$logname/.vim/bundle/phpactor
+cd /home/$(logname)/.vim/bundle/phpactor
 composer install
 
-chown $(logname):$(logname) -R ~/.vim
-chown $(logname):$(logname) ~/.vimrc
+chown $(logname):$(logname) -R /home/$(logname)/.vim
+chown $(logname):$(logname) /home/$(logname)/.vimrc
 
 echo "All done!"
 
