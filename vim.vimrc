@@ -28,6 +28,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-eunuch'
 Plugin 'moll/vim-bbye'
+Plugin 'chrisbra/Colorizer'
 
 " --- ColorSchemes ---
 Plugin 'vim-airline/vim-airline-themes'
