@@ -45,7 +45,10 @@ Plugin 'joshdick/onedark.vim'
 " --- Syntax Plugins ---
 Plugin 'stephpy/vim-yaml'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'leshill/vim-json'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 
 " --- Code Assist Plugins ---
@@ -145,6 +148,9 @@ let g:neocomplete#enable_at_startup = 1
 " --- NERDTree ---
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:NERDTreeChDirMode = 2
+
+" --- Vim JavaScript ---
+let g:javascript_plugin_jsdoc = 1
 
 " --- EasyTags ---
 let g:easytags_events = ['BufReadPost', 'BufWritePost']

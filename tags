@@ -56,6 +56,7 @@ g:easytags_events	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:easytag
 g:easytags_resolve_links	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
 g:easytags_suppress_ctags_warnings	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:easytags_suppress_ctags_warnings = 1$/;"	v	language:Vim
 g:gitgutter_async	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:gitgutter_async=0$/;"	v	language:Vim
+g:javascript_plugin_jsdoc	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:javascript_plugin_jsdoc = 1$/;"	v	language:Vim
 g:molokai_original	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:molokai_original = 1$/;"	v	language:Vim
 g:neocomplete#enable_at_startup	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:neocomplete#enable_at_startup = 1$/;"	v	language:Vim
 g:NERDTreeChDirMode	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:NERDTreeChDirMode = 2$/;"	v	language:Vim
