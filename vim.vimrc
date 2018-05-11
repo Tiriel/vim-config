@@ -63,7 +63,6 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'tpope/vim-surround'
 Plugin 'beyondwords/vim-twig'
 Plugin 'Raimondi/delimitMate'
-Plugin 'HTML-AutoCloseTag'
 Plugin '2072/PHP-Indenting-for-VIm'
 
 " --- Code Quality Plugins ---
@@ -103,7 +102,9 @@ set hlsearch
 syntax enable
 
 set t_Co=256
-set termguicolors
+if ! exists('$TMUX')
+    set termguicolors
+endif
 set background=dark
 
 set mouse=a
