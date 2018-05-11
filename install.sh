@@ -158,6 +158,7 @@ checkinstall -y
 cd /home/$(logname)/
 cp $DIR/vim.vimrc /home/$(logname)/.vimrc
 cp $DIR/dotvim /home/$(logname)/.vim -r
+cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
 
 # install Vundle
 rm -fr /home/$(logname)/.vim/bundle/Vundle*

@@ -73,7 +73,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'FooSoft/vim-argwrap'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'w0rp/ale'
 Plugin 'maksimr/vim-jsbeautify'
 
 " --- Support Plugins ---
