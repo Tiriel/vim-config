@@ -2,16 +2,24 @@
 #
 # /!\
 # This script needs to be run in sudo
-
+if [ "$1" = "" ]
+then
+    printf "\n\
+\e[0;37;41m                                                         \e[0m\n\
+\e[0;37;41m    This script needs to be passed the sudo password.    \e[0m\n\
+\e[0;37;41m                                                         \e[0m\n\
+\n"
+    return
+fi
 DIR=$(cd `dirname $0` && pwd)
 
 # Starting by removing all other versions of vim
-apt remove -y vim vim*
-apt autoremove
+echo $1 | sudo -S apt remove -y vim vim*
+echo $1 | sudo -S apt autoremove
 
 # ------ Requirements ------
 # LUA & other base requirements check/install
-apt install -y \
+echo $1 | sudo -S apt install -y \
     libncurses5-dev \
     libgnome2-dev \
     libgnomeui-dev \
@@ -37,16 +45,16 @@ apt install -y \
 
 if ! command -v lua >/dev/null 2>&1
 then
-    ln -s /usr/include/lua5.2 /usr/include/lua
-    ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
+    echo $1 | sudo -S ln -s /usr/include/lua5.2 /usr/include/lua
+    echo $1 | sudo -S ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
 fi
 
 # PHP version
 if ! test "$(php --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' | awk -F'.' ' ( $1 == 7 || ( $1 == 7 && $2 <= 1 ) || ( $1 == 7 && $2 == 1 && $3 <= 17 ) ) ' )"
 then
-    add-apt-repository -y ppa:ondrej/php
-    apt update
-    apt install -y php7.1 php7.1-mbstring
+    echo $1 | sudo -S add-apt-repository -y ppa:ondrej/php
+    echo $1 | sudo -S apt update
+    echo $1 | sudo -S apt install -y php7.1 php7.1-mbstring
 fi
 
 # Composer
@@ -57,7 +65,7 @@ then
     php composer-setup.php
     php -r "unlink('composer-setup.php');"
     chmod a+x composer.phar
-    mv composer.phar /usr/local/bin/composer
+    echo $1 | sudo -S mv composer.phar /usr/local/bin/composer
 fi
 
 # phpactor
@@ -67,8 +75,8 @@ then
     git clone https://github.com/phpactor/phpactor.git
     cd phpactor
     composer install
-    cd /usr/local/bin
-    ln -s /home/$(logname)/Dev/php/phpactor/bin/phpactor phpactor
+    echo $1 | sudo -S cd /usr/local/bin
+    echo $1 | sudo -S ln -s /home/$(logname)/Dev/php/phpactor/bin/phpactor phpactor
     cd /home/$(logname)/
 fi
 
@@ -77,13 +85,13 @@ if ! command -v php-cs-fixer >/dev/null 2>&1
 then
     wget https://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -O php-cs-fixer
     chmod a+x php-cs-fixer
-    mv php-cs-fixer /usr/local/bin/php-cs-fixer
+    echo $1 | sudo -S mv php-cs-fixer /usr/local/bin/php-cs-fixer
 fi
 
 # Ruby
 if ! test "$(ruby --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' | awk -F'.' ' ( $1 < 2 || ( $1 == 2 && $2 < 3 ) || ( $1 == 2 && $2 == 3 && $3 <= 1 ) ) ' )"
 then
-    apt install -y ruby2.3
+    echo $1 | sudo -S apt install -y ruby2.3
 fi
 
 # fzf
@@ -102,21 +110,21 @@ then
     ./autogen.sh
     ./configure
     make
-    checkinstall
+    echo $1 | sudo -S checkinstall
     cd ..
-    rm -rf ctags
+    echo $1 | sudo -S rm -rf ctags
 fi
 
 # ------ Build ------
 cd /home/$(logname)/
 if ls .vim 2>/dev/null
 then
-    rm -rf .vim
+    echo $1 | rm -rf .vim
 fi
 
 if ls vim 2>/dev/null
 then
-    rm -rf vim
+    echo $1 | sudo -S rm -rf vim
 fi
 
 git clone https://github.com/vim/vim
@@ -125,8 +133,8 @@ git pull && git fetch
 
 # In case Vim was already installed
 cd src
-make distclean
-apt remove -y vim gvim vim-*
+echo $1 | sudo -S make distclean
+echo $1 | sudo -S apt remove -y vim gvim vim-*
 cd ..
 
 ./configure \
@@ -152,7 +160,7 @@ cd ..
 --enable-fail-if-missing
 
 make
-checkinstall -y
+echo $1 | sudo -S checkinstall -y
 
 # copy config from this repo
 cd /home/$(logname)/
@@ -161,9 +169,8 @@ cp $DIR/dotvim /home/$(logname)/.vim -r
 cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
 
 # install Vundle
-rm -fr /home/$(logname)/.vim/bundle/Vundle*
-rm -fr /home/$(logname)/.vim/bundle/sublime*
-su $logname
+echo $1 | sudo -S rm -fr /home/$(logname)/.vim/bundle/Vundle*
+echo $1 | sudo -S rm -fr /home/$(logname)/.vim/bundle/sublime*
 git clone https://github.com/VundleVim/Vundle.vim.git /home/$(logname)/.vim/bundle/Vundle.vim
 git clone git@github.com:Tiriel/sublimemonokai /home/$(logname)/.vim/bundle/sublimemonokai
 
@@ -176,5 +183,11 @@ composer install
 chown $(logname):$(logname) -R /home/$(logname)/.vim
 chown $(logname):$(logname) /home/$(logname)/.vimrc
 
-echo "All done!"
+cd /home/$(logname)/
+
+printf "\n\
+\e[0;37;42m                                 \e[0m\n\
+\e[0;37;42m            All done!            \e[0m\n\
+\e[0;37;42m                                 \e[0m\n\
+\n"
 
