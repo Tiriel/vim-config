@@ -32,6 +32,7 @@ apt install -y \
     checkinstall \
     autotools-dev \
     autoconf \
+    fonts-powerline \
     git
 
 if ! command -v lua >/dev/null 2>&1
