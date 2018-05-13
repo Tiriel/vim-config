@@ -5,16 +5,16 @@
 if [ "$1" = "" ]
 then
     printf "\n\
-\e[0;37;41m                                                         \e[0m\n\
-\e[0;37;41m    This script needs to be passed the sudo password.    \e[0m\n\
-\e[0;37;41m                                                         \e[0m\n\
+\033[0;37;41m                                                         \033[0m\n\
+\033[0;37;41m    This script needs to be passed the sudo password.    \033[0m\n\
+\033[0;37;41m                                                         \033[0m\n\
 \n"
     return
 fi
 DIR=$(cd `dirname $0` && pwd)
 
 # Starting by removing all other versions of vim
-echo $1 | sudo -S apt remove -y vim vim*
+echo $1 | sudo -S apt remove -y vim vim-*
 echo $1 | sudo -S apt autoremove
 
 # ------ Requirements ------
@@ -33,9 +33,11 @@ echo $1 | sudo -S apt install -y \
     python-dev \
     python3-dev \
     ruby-dev \
-    lua5.2 \
-    liblua5.2-dev \
+    lua5.1 \
+    liblua5.1-dev \
     luajit \
+    libluajit-5.1 \
+    libluajit-5.1-dev \
     libperl-dev \
     checkinstall \
     autotools-dev \
@@ -45,8 +47,9 @@ echo $1 | sudo -S apt install -y \
 
 if ! command -v lua >/dev/null 2>&1
 then
-    echo $1 | sudo -S ln -s /usr/include/lua5.2 /usr/include/lua
-    echo $1 | sudo -S ln -s /usr/lib/x86_64-linux-gnu/liblua5.2.so /usr/local/lib/liblua.so
+    echo $1 | sudo -S ln -s /usr/include/lua5.1 /usr/include/lua
+    echo $1 | sudo -S ln -s /usr/lib/x86_64-linux-gnu/liblua5.1.so /usr/local/lib/liblua.so
+    echo $1 | sudo -S ln -s /usr/include/lua5.1/lua.h /usr/include/lua.h
 fi
 
 # PHP version
@@ -54,7 +57,7 @@ if ! test "$(php --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' | awk -F'.' ' ( $
 then
     echo $1 | sudo -S add-apt-repository -y ppa:ondrej/php
     echo $1 | sudo -S apt update
-    echo $1 | sudo -S apt install -y php7.1 php7.1-mbstring
+    echo $1 | sudo -S apt install -y php7.1 php7.1-mbstring php7.1-xml
 fi
 
 # Composer
@@ -72,10 +75,12 @@ fi
 if ! command -v phpactor >/dev/null 2>&1
 then
     cd /home/$(logname)/Dev/php
+    echo $1 | sudo -S rm -rf phpactor
     git clone https://github.com/phpactor/phpactor.git
     cd phpactor
     composer install
     echo $1 | sudo -S cd /usr/local/bin
+    echo $1 | sudo -S rm -rf phpactor
     echo $1 | sudo -S ln -s /home/$(logname)/Dev/php/phpactor/bin/phpactor phpactor
     cd /home/$(logname)/
 fi
@@ -91,7 +96,7 @@ fi
 # Ruby
 if ! test "$(ruby --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' | awk -F'.' ' ( $1 < 2 || ( $1 == 2 && $2 < 3 ) || ( $1 == 2 && $2 == 3 && $3 <= 1 ) ) ' )"
 then
-    echo $1 | sudo -S apt install -y ruby2.3
+    echo $1 | sudo -S apt install -y ruby2.*
 fi
 
 # fzf
@@ -138,10 +143,10 @@ echo $1 | sudo -S apt remove -y vim gvim vim-*
 cd ..
 
 ./configure \
---enable-luainterp=yes \
---enable-perlinterp=yes \
---enable-pythoninterp=yes \
---enable-rubyinterp=yes \
+--enable-luainterp \
+--enable-perlinterp \
+--enable-pythoninterp \
+--enable-rubyinterp \
 --enable-cscope \
 --disable-netbeans \
 --enable-multibyte \
@@ -186,8 +191,8 @@ chown $(logname):$(logname) /home/$(logname)/.vimrc
 cd /home/$(logname)/
 
 printf "\n\
-\e[0;37;42m                                 \e[0m\n\
-\e[0;37;42m            All done!            \e[0m\n\
-\e[0;37;42m                                 \e[0m\n\
+\033[0;37;42m                                 \033[0m\n\
+\033[0;37;42m            All done!            \033[0m\n\
+\033[0;37;42m                                 \033[0m\n\
 \n"
 
