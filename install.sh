@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # /!\
-# This script needs to be run in sudo
+# For this script to run properly, the user must be a sudoer
+# and must pass their sudo password
 if [ "$1" = "" ]
 then
     printf "\n\
@@ -117,7 +118,7 @@ then
     make
     echo $1 | sudo -S checkinstall
     cd ..
-    echo $1 | sudo -S rm -rf ctags
+    echo $1 | sudo -S rm ctags -fr
 fi
 
 # ------ Build ------
@@ -169,6 +170,8 @@ echo $1 | sudo -S checkinstall -y
 
 # copy config from this repo
 cd /home/$(logname)/
+echo $1 | sudo -S rm ./vim -fr
+
 cp $DIR/vim.vimrc /home/$(logname)/.vimrc
 cp $DIR/dotvim /home/$(logname)/.vim -r
 cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
