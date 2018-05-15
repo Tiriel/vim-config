@@ -156,6 +156,10 @@ let g:javascript_plugin_jsdoc = 1
 " --- php-use-namespace ---
 let g:php_namespace_sort_after_insert = 1
 
+" --- PVD ---
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+
 " --- EasyTags ---
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
