@@ -52,6 +52,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
 
 " --- Code Assist Plugins ---
+Bundle 'tobyS/vmustache'
+Bundle 'tobyS/pdv'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -151,6 +153,9 @@ let g:NERDTreeChDirMode = 2
 " --- Vim JavaScript ---
 let g:javascript_plugin_jsdoc = 1
 
+" --- php-use-namespace ---
+let g:php_namespace_sort_after_insert = 1
+
 " --- EasyTags ---
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
@@ -249,5 +254,12 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 
 
