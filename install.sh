@@ -44,6 +44,7 @@ echo $1 | sudo -S apt install -y \
     autotools-dev \
     autoconf \
     fonts-powerline \
+    silversearcher-ag \
     git
 
 if ! command -v lua >/dev/null 2>&1
