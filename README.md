@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7d00b48093e84077ae43c386de63c2fd)](https://www.codacy.com/app/Tiriel/vim-config?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Tiriel/vim-config&amp;utm_campaign=Badge_Grade)
+
 # README
 
 This is my personnal Vim config. This is not meant to be shared by other, but by all means help yourself, and PR ameliorations.
