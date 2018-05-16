@@ -219,7 +219,7 @@ nmap <F12> :TagbarToggle<CR>
 
 " FZF and Ag
 noremap <C-F> :FZF<CR>
-noremap <C-s> :Ag<CR>
+noremap <C-d> :Ag<CR>
 noremap <leader>q :Bdelete<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h

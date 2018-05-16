@@ -1,5 +1,6 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
 <C-b>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^map <silent> <C-b> <Plug>CamelCaseMotion_b$/;"	m	language:Vim
+<C-d>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^noremap <C-d> :Ag<CR>$/;"	m	language:Vim
 <C-e>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^map <silent> <C-e> <Plug>CamelCaseMotion_e$/;"	m	language:Vim
 <C-F>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^noremap <C-F> :FZF<CR>$/;"	m	language:Vim
 <C-g>e	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^map <silent> <C-g>e <Plug>CamelCaseMotion_ge$/;"	m	language:Vim
@@ -7,7 +8,6 @@
 <C-j>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-j> <C-w>j$/;"	m	language:Vim
 <C-k>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-k> <C-w>k$/;"	m	language:Vim
 <C-l>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-l> <C-w>l$/;"	m	language:Vim
-<C-s>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^noremap <C-s> :Ag<CR>$/;"	m	language:Vim
 <C-w>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^map <silent> <C-w> <Plug>CamelCaseMotion_w$/;"	m	language:Vim
 <F12>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <F12> :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>(	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <leader>( <Plug>AirlineSelectPrevTab$/;"	m	language:Vim
