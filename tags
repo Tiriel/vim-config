@@ -7,6 +7,7 @@
 <C-j>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-j> <C-w>j$/;"	m	language:Vim
 <C-k>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-k> <C-w>k$/;"	m	language:Vim
 <C-l>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nnoremap <C-l> <C-w>l$/;"	m	language:Vim
+<C-s>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^noremap <C-s> :Ag<CR>$/;"	m	language:Vim
 <C-w>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^map <silent> <C-w> <Plug>CamelCaseMotion_w$/;"	m	language:Vim
 <F12>	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <F12> :TagbarToggle<CR>$/;"	m	language:Vim
 <leader>(	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <leader>( <Plug>AirlineSelectPrevTab$/;"	m	language:Vim
@@ -40,6 +41,7 @@
 <leader>t	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <silent> <leader>t :NERDTreeTabsToggle<CR>$/;"	m	language:Vim
 <Leader>tt	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <Leader>tt :call phpactor#Transform()<CR>$/;"	m	language:Vim
 <Leader>u	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^nmap <Leader>u :call phpactor#UseAdd()<CR>$/;"	m	language:Vim
+Ag	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^command! -bang -nargs=* Ag$/;"	c	language:Vim
 delimitMate_expand_cr	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let delimitMate_expand_cr = 1$/;"	v	language:Vim
 g:airline#extensions#hunks#non_zero_only	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline#extensions#hunks#non_zero_only = 1$/;"	v	language:Vim
 g:airline#extensions#tabline#alt_sep	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline#extensions#tabline#alt_sep = 1$/;"	v	language:Vim

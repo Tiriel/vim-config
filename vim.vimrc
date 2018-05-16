@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " --- UI Plugins ---
+Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
@@ -216,8 +217,9 @@ nmap <silent> <leader>r :NERDTreeCWD<CR>
 " TagbarToggle
 nmap <F12> :TagbarToggle<CR>
 
-" FZF
+" FZF and Ag
 noremap <C-F> :FZF<CR>
+noremap <C-s> :Ag<CR>
 noremap <leader>q :Bdelete<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h
@@ -265,5 +267,12 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
 
 
