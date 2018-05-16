@@ -12,7 +12,7 @@ then
 \n"
     return
 fi
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd $(dirname $0) && pwd)
 
 # Starting by removing all other versions of vim
 echo $1 | sudo -S apt remove -y vim vim-*
