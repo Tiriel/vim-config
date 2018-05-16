@@ -176,6 +176,8 @@ echo $1 | sudo -S rm ./vim -fr
 cp $DIR/vim.vimrc /home/$(logname)/.vimrc
 cp $DIR/dotvim /home/$(logname)/.vim -r
 cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
+cp $DIR/global.gitignore_global /home/$(logname)/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
 
 # install Vundle
 echo $1 | sudo -S rm -fr /home/$(logname)/.vim/bundle/Vundle*
