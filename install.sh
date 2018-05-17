@@ -186,7 +186,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git /home/$(logname)/.vim/bund
 git clone git@github.com:Tiriel/sublimemonokai /home/$(logname)/.vim/bundle/sublimemonokai
 
 # install plugins
-vim +PluginInstall +qall
+vim +PluginInstall +"PromptlineSnapshot ~/.shell_prompt.sh airline" +qall
+
+echo source ~/.shell_prompt.sh airline >> /home/$(logname)/.bashrc
 
 cd /home/$(logname)/.vim/bundle/phpactor
 composer install
@@ -195,6 +197,7 @@ chown $(logname):$(logname) -R /home/$(logname)/.vim
 chown $(logname):$(logname) /home/$(logname)/.vimrc
 
 cd /home/$(logname)/
+source ./.bashrc
 
 printf "\n\
 \033[0;37;42m                                 \033[0m\n\
