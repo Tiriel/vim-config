@@ -12,6 +12,7 @@ call vundle#begin()
 
 " --- PluginManager ---
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'edkolev/promptline.vim'
 
 " --- UI Plugins ---
 Plugin 'junegunn/fzf.vim'
