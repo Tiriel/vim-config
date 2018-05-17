@@ -51,7 +51,7 @@ g:airline#extensions#tabline#show_tabs	/home/benjaminz/Dev/perso/vim-config/vim.
 g:airline#extensions#tabline#tab_nr_type	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline#extensions#tabline#tab_nr_type = 2$/;"	v	language:Vim
 g:airline_detect_paste	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline_detect_paste=1$/;"	v	language:Vim
 g:airline_powerline_fonts	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
-g:airline_theme	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline_theme='minimalist'$/;"	v	language:Vim
+g:airline_theme	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:airline_theme='sublimemonokai'$/;"	v	language:Vim
 g:deus_termcolors	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:deus_termcolors=256$/;"	v	language:Vim
 g:easytags_async	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:easytags_async = 1$/;"	v	language:Vim
 g:easytags_dynamic_files	/home/benjaminz/Dev/perso/vim-config/vim.vimrc	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim

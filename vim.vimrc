@@ -135,7 +135,7 @@ let g:deus_termcolors=256
 
 " --- Airline status bar ---
 let g:airline_detect_paste=1
-let g:airline_theme='minimalist'
+let g:airline_theme='sublimemonokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tabs = 1
