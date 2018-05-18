@@ -267,13 +267,6 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 autocmd BufEnter * sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 command! -bang -nargs=* Ag
