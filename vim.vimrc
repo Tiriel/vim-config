@@ -66,7 +66,6 @@ Plugin 'sniphpets/sniphpets-doctrine'
 Plugin 'sniphpets/sniphpets-phpunit'
 Plugin 'sniphpets/sniphpets-silex'
 Plugin 'phpactor/phpactor'
-Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'tpope/vim-surround'
 Plugin 'beyondwords/vim-twig'
 Plugin 'Raimondi/delimitMate'
@@ -176,6 +175,9 @@ let g:UltiSnipsJumpForwardTrigger="<C-z>"
 let g:UltiSnipsJumpBackwardTrigger="<C-a>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnips"]
 
+" --- DBext ---
+" let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=root:passwd=root:dbname=mysql'
+
 " --- Maps & remaps ---
 "remap the leader to something easier to type
 let mapleader = "ù"
@@ -234,6 +236,9 @@ map <silent> <C-b> <Plug>CamelCaseMotion_b
 map <silent> <C-e> <Plug>CamelCaseMotion_e
 map <silent> <C-g>e <Plug>CamelCaseMotion_ge
 
+nmap <leader>cp :let @+=expand("%:p")<CR>
+nmap <leader>cf :let @+=expand("%")<CR>
+
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
 " Invoke the context menu
@@ -268,6 +273,8 @@ function! IPhpInsertUse()
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
