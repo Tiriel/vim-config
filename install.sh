@@ -15,7 +15,7 @@ fi
 DIR=$(cd $(dirname $0) && pwd)
 
 # Starting by removing all other versions of vim
-echo $1 | sudo -S apt remove -y vim vim-*
+echo $1 | sudo -S apt purge -y vim vim-*
 echo $1 | sudo -S apt autoremove
 
 # ------ Requirements ------
@@ -197,7 +197,7 @@ chown $(logname):$(logname) -R /home/$(logname)/.vim
 chown $(logname):$(logname) /home/$(logname)/.vimrc
 
 cd /home/$(logname)/
-source ./.bashrc
+source ~/.bashrc
 
 printf "\n\
 \033[0;37;42m                                 \033[0m\n\

@@ -41,3 +41,7 @@ Thumbs.db
 *.swp
 .*.swp
 
+# Ctags tags files #
+####################
+tags
+
