@@ -45,6 +45,7 @@ echo $1 | sudo -S apt install -y \
     autoconf \
     fonts-powerline \
     silversearcher-ag \
+    curl \
     git
 
 if ! command -v lua >/dev/null 2>&1
@@ -61,6 +62,18 @@ then
     echo $1 | sudo -S apt update
     echo $1 | sudo -S apt install -y php7.1 php7.1-mbstring php7.1-xml
 fi
+
+# NVM && Node.js
+if ! command -v nvm >/dev/null 2>&1
+then
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    source ~/.bashrc
+    nvm install 8
+    nvm use 8
+fi
+
+# eslint && plugins
+npm i -g eslint prettier eslint-plugin-node-core eslint-plugin-prettier eslint-config-prettier
 
 # Composer
 if ! command -v composer >/dev/null 2>&1
@@ -176,6 +189,7 @@ echo $1 | sudo -S rm ./vim -fr
 cp $DIR/vim.vimrc /home/$(logname)/.vimrc
 cp $DIR/dotvim /home/$(logname)/.vim -r
 cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
+cp $DIR/js.eslintrc.js /home/$(logname)/.eslintrc.js
 cp $DIR/global.gitignore_global /home/$(logname)/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 

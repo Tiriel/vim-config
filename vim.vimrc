@@ -52,6 +52,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'leshill/vim-json'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'w0rp/ale'
 
 " --- Code Assist Plugins ---
 Bundle 'tobyS/vmustache'
@@ -154,6 +155,9 @@ let g:NERDTreeChDirMode = 2
 " --- Vim JavaScript ---
 let g:javascript_plugin_jsdoc = 1
 
+" --- ALE ---
+let g:ale_fixers = ['eslint', 'prettier']
+
 " --- php-use-namespace ---
 let g:php_namespace_sort_after_insert = 1
 
@@ -238,6 +242,9 @@ map <silent> <C-g>e <Plug>CamelCaseMotion_ge
 
 nmap <leader>cp :let @+=expand("%:p")<CR>
 nmap <leader>cf :let @+=expand("%")<CR>
+
+" ALE
+nmap <leader>lf <Plug>(ale_fix)
 
 " Include use statement
 nmap <Leader>u :call phpactor#UseAdd()<CR>
