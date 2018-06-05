@@ -4,7 +4,7 @@ module.exports = {
         "node": true
     },
     "extends": [
-        "eslint:recommended",
+        "eslint:standard",
         "prettier"
     ],
     "parserOptions": {
