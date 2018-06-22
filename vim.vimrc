@@ -260,6 +260,11 @@ nmap <Leader>cc :call phpactor#ClassNew()<CR>
 " Extract method from selection
 vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
 
+function! PhpFindUsage(word)
+    exe "Ag ".a:word.'\('
+endfunction
+nmap <Leader>fu :call PhpFindUsage('<C-r><C-w>')<CR>
+
 " --- Functions and augroups ---
 let delimitMate_expand_cr = 1
 augroup mydelimitMate
