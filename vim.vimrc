@@ -31,6 +31,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-eunuch'
 Plugin 'moll/vim-bbye'
 Plugin 'chrisbra/Colorizer'
+Plugin 'tpope/vim-obsession'
 
 " --- ColorSchemes ---
 Plugin 'vim-airline/vim-airline-themes'
