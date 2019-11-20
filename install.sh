@@ -160,7 +160,7 @@ cd ..
 ./configure \
 --enable-luainterp \
 --enable-perlinterp \
---enable-pythoninterp \
+--enable-python3interp \
 --enable-rubyinterp \
 --enable-cscope \
 --disable-netbeans \
@@ -171,9 +171,7 @@ cd ..
 --with-clipboard \
 --with-xterm-clipboard \
 --with-ruby-command=/usr/bin/ruby \
---with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
---enable-python3interp \
---with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+--with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
 --with-luajit \
 --with-x \
 --enable-fontset \
@@ -205,6 +203,10 @@ git clone git@github.com:Tiriel/sublimemonokai /home/$(logname)/.vim/bundle/subl
 vim +PluginInstall +"PromptlineSnapshot ~/.shell_prompt.sh airline" +qall
 
 echo source ~/.shell_prompt.sh airline >> /home/$(logname)/.bashrc
+
+cp universal_tags_support.patch ~/.vim/bundle/vim-easytags/autoload/xolox/
+cd /home/$(logname)/.vim/bundle/vim-easytags/autoload/xolox/
+git apply universal_tags_support.patch
 
 cd /home/$(logname)/.vim/bundle/phpactor
 composer install
