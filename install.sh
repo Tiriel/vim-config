@@ -168,6 +168,8 @@ cd ..
 --enable-largefile \
 --enable-gui=no \
 --with-features=huge \
+--with-clipboard \
+--with-xterm-clipboard \
 --with-ruby-command=/usr/bin/ruby \
 --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
 --enable-python3interp \
