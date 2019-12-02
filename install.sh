@@ -29,6 +29,7 @@ echo $1 | sudo -S apt install -y \
     libbonoboui2-dev \
     libcairo2-dev \
     libx11-dev \
+    libxtst-dev \
     libxpm-dev \
     libxt-dev \
     python-dev \
@@ -168,8 +169,6 @@ cd ..
 --enable-largefile \
 --enable-gui=no \
 --with-features=huge \
---with-clipboard \
---with-xterm-clipboard \
 --with-ruby-command=/usr/bin/ruby \
 --with-python3-config-dir=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu \
 --with-luajit \

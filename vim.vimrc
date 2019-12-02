@@ -20,7 +20,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'bling/vim-bufferline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
@@ -32,6 +34,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'moll/vim-bbye'
 Plugin 'chrisbra/Colorizer'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-dadbod'
 
 " --- ColorSchemes ---
 Plugin 'vim-airline/vim-airline-themes'
@@ -121,6 +124,8 @@ colorscheme sublimemonokai
 
 set laststatus=2
 
+let g:deoplete#enable_at_startup = 1
+
 " --- php.vim ---
 let g:php_var_selector_is_identifier = 1
 
@@ -156,7 +161,7 @@ let g:NERDTreeChDirMode = 2
 let g:javascript_plugin_jsdoc = 1
 
 " --- ALE ---
-let g:ale_fixers = ['eslint', 'prettier']
+let g:ale_fixers = ['eslint', 'prettier', 'tidy']
 
 " --- php-use-namespace ---
 let g:php_namespace_sort_after_insert = 1
@@ -226,8 +231,13 @@ nmap <F12> :TagbarToggle<CR>
 
 " FZF and Ag
 noremap <C-F> :FZF<CR>
-noremap <C-d> :Ag<CR>
+noremap <C-d> :Rg<CR>
 noremap <leader>q :Bdelete<CR>
+nnoremap <silent> <expr> <C-F> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
+" Open files in horizontal split
+nnoremap <C-s> :call fzf#run({
+\   'down': '40%',
+\   'sink': 'botright split' })<CR>
 " remap splits navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
