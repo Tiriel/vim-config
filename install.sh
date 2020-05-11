@@ -74,7 +74,8 @@ then
 fi
 
 # eslint && plugins
-npm i -g eslint prettier eslint-plugin-node-core eslint-plugin-prettier eslint-config-prettier eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
+npm i -g eslint prettier eslint-plugin-node-core eslint-plugin-prettier eslint-config-prettier eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node git+https://github.com/ramitos/jsctags.git
+
 
 # Composer
 if ! command -v composer >/dev/null 2>&1

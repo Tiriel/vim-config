@@ -35,6 +35,7 @@ Plugin 'moll/vim-bbye'
 Plugin 'chrisbra/Colorizer'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-dadbod'
+Plugin 'alvan/vim-closetag'
 
 " --- ColorSchemes ---
 Plugin 'vim-airline/vim-airline-themes'
@@ -51,8 +52,9 @@ Plugin 'joshdick/onedark.vim'
 " --- Syntax Plugins ---
 Plugin 'stephpy/vim-yaml'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'leshill/vim-json'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -71,6 +73,7 @@ Plugin 'sniphpets/sniphpets-doctrine'
 Plugin 'sniphpets/sniphpets-phpunit'
 Plugin 'phpactor/phpactor'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'beyondwords/vim-twig'
 Plugin 'Raimondi/delimitMate'
 Plugin '2072/PHP-Indenting-for-VIm'
@@ -184,6 +187,13 @@ let g:UltiSnipsJumpForwardTrigger="<C-z>"
 let g:UltiSnipsJumpBackwardTrigger="<C-a>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnips"]
 
+
+" --- Closetag ---
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.js,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.php'
+let g:closetag_filetypes = 'html,xhtml,phtml,php,js,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,php'
+
 " --- DBext ---
 " let g:dbext_default_profile_mysql_local = 'type=MYSQL:user=root:passwd=root:dbname=mysql'
 
@@ -231,7 +241,7 @@ nmap <F12> :TagbarToggle<CR>
 
 " FZF and Ag
 noremap <C-F> :FZF<CR>
-noremap <C-d> :Rg<CR>
+noremap <C-d> :Ag<CR>
 noremap <leader>q :Bdelete<CR>
 nnoremap <silent> <expr> <C-F> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
 " Open files in horizontal split
