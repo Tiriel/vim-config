@@ -92,6 +92,7 @@ call vundle#end()
 
 filetype plugin indent on
 set tabstop=4 shiftwidth=4 expandtab
+set completeopt+=noinsert
 
 " --- General settings ---
 " save undo history to a file
