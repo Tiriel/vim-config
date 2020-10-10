@@ -22,11 +22,8 @@ echo $1 | sudo -S apt autoremove
 # LUA & other base requirements check/install
 echo $1 | sudo -S apt install -y \
     libncurses5-dev \
-    libgnome2-dev \
-    libgnomeui-dev \
     libgtk2.0-dev \
     libatk1.0-dev \
-    libbonoboui2-dev \
     libcairo2-dev \
     libx11-dev \
     libxtst-dev \
@@ -38,7 +35,6 @@ echo $1 | sudo -S apt install -y \
     lua5.1 \
     liblua5.1-dev \
     luajit \
-    libluajit-5.1 \
     libluajit-5.1-dev \
     libperl-dev \
     checkinstall \
@@ -189,6 +185,7 @@ echo $1 | sudo -S rm ./vim -fr
 cp $DIR/vim.vimrc /home/$(logname)/.vimrc
 cp $DIR/dotvim /home/$(logname)/.vim -r
 cp $DIR/MySnips /home/$(logname)/.vim/MySnips -r
+cp $DIR/tmux.conf /home/$(logname)/.tmux.conf
 cp $DIR/js.eslintrc.js /home/$(logname)/.eslintrc.js
 cp $DIR/global.gitignore_global /home/$(logname)/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
@@ -203,6 +200,12 @@ git clone git@github.com:Tiriel/sublimemonokai /home/$(logname)/.vim/bundle/subl
 vim +PluginInstall +"PromptlineSnapshot ~/.shell_prompt.sh airline" +qall
 
 echo source ~/.shell_prompt.sh airline >> /home/$(logname)/.bashrc
+
+# Install neovim, tmux and tmuxinator
+echo $1 | sudo -S apt install -y \
+    neovim \
+    tmux \
+    tmuxinator
 
 cp universal_tags_support.patch ~/.vim/bundle/vim-easytags/autoload/xolox/
 cd /home/$(logname)/.vim/bundle/vim-easytags/autoload/xolox/
