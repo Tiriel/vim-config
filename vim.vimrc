@@ -1,6 +1,9 @@
 " Has to be first
 set nocompatible
 
+set splitright
+set splitbelow
+
 " --- Bundles ---
 filetype off
 
