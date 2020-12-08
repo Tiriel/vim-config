@@ -63,6 +63,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'leshill/vim-json'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'chr4/nginx.vim'
 Plugin 'w0rp/ale'
 
 " --- Code Assist Plugins ---
