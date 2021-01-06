@@ -8,7 +8,7 @@ set splitbelow
 filetype off
 
 set runtimepath^=~/.vim/bundle/bbye
-set rtp+=~/.fzf
+set rtp+=~/.fzf/bin/fzf
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'edkolev/promptline.vim'
 
 " --- UI Plugins ---
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'bling/vim-bufferline'
@@ -57,9 +58,9 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'leshill/vim-json'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -70,7 +71,7 @@ Plugin 'w0rp/ale'
 Bundle 'tobyS/vmustache'
 Bundle 'tobyS/pdv'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'SirVer/ultisnips'
+Plugin 'git@github.com:SirVer/ultisnips.git'
 Plugin 'honza/vim-snippets'
 Plugin 'sniphpets/sniphpets'
 Plugin 'sniphpets/sniphpets-common'
@@ -164,7 +165,7 @@ let g:gitgutter_async=0
 let g:neocomplete#enable_at_startup = 1
 
 " --- NERDTree ---
-let g:nerdtree_tabs_open_on_console_startup = 1
+autocmd VimEnter * NERDTree | wincmd p
 let g:NERDTreeChDirMode = 2
 
 " --- Vim JavaScript ---
@@ -206,7 +207,7 @@ let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,php'
 
 " --- Maps & remaps ---
 "remap the leader to something easier to type
-let mapleader = "ù"
+let mapleader = ","
 
 " Airline Tabline
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -269,6 +270,10 @@ map <silent> <C-g>e <Plug>CamelCaseMotion_ge
 
 nmap <leader>cp :let @+=expand("%:p")<CR>
 nmap <leader>cf :let @+=expand("%")<CR>
+
+" PDV phpDocumentor for Vim
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nmap <C-p> :call pdv#DocumentWithSnip()<CR>
 
 " ALE
 nmap <leader>lf <Plug>(ale_fix)
